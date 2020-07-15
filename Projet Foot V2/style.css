@@ -1,0 +1,914 @@
+body
+{
+    background: url("images/terrain2h.png") fixed;
+    background-size: cover;
+   
+}
+
+.terrain,.joueurs
+{
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+
+
+/*Terrain*/
+.main
+{
+    position: fixed;
+    width: 90%;
+    height: 90%;
+    border: 5px solid white;
+    left: 5%;
+    top: 5%;   
+    --heightsurfaceG:66%;
+    --heightsurfaceD:66%;
+    --widthsurfaceG:33%;
+    --widthsurfaceD:33%;
+    --heightembutG: calc(var(--heightsurfaceG) / 1.5);
+    --heightembutD: calc(var(--heightsurfaceD) / 1.5);
+}
+
+
+
+.gauche,.droite
+{
+    position: absolute;
+    width:50% ;
+    height: 100%;
+}
+
+.droite
+{
+    left:50%;
+    border-left: 2.5px solid white;
+}
+.gauche
+{
+    right:50%;
+    border-right: 2.5px solid white;
+}
+
+
+.surfacegauche,.surfacedroite
+{
+    position: absolute;
+    border: 3px solid #FFFFFF;
+}
+
+.surfacegauche
+{
+    border-left:none;
+    height: var(--heightsurfaceG);
+    width: var(--widthsurfaceG);
+    top: calc((100% - var(--heightsurfaceG))/2);
+    right: calc((100% - var(--widthsurfaceG)) - 3px);
+}
+
+.surfacedroite
+{
+    border-right: none;
+    left:calc((100% - var(--widthsurfaceD)) - 3px);
+    width: var(--widthsurfaceG);
+    height: var(--heightsurfaceD);
+    top: calc((100% - var(--heightsurfaceD))/2);
+}
+
+
+.embutgauche,.embutdroite
+{
+    position:absolute;
+    border: 3px solid #FFFFFF;
+    
+}
+
+.embutgauche
+{
+    width: calc(var(--widthsurfaceG)/ 1.2) ;
+    height: var(--heightembutG);
+    border-left:none;
+    top: calc((100% - var(--heightembutG))/2);
+}
+
+.embutdroite
+{
+    border-right:none;
+    height: var(--heightembutD);
+    top: calc((100% - var(--heightembutD))/2);
+    width: calc(var(--widthsurfaceD)/ 1.2) ;
+    left: calc((100% - (var(--widthsurfaceD) / 1.2)) - 3px);
+    
+}
+
+.butgauche,.butdroit
+{
+    position: absolute;
+    width:20%;
+    height:25%;
+    border: 3px solid #FFFFFF;
+    top:37.5%;
+}
+.butgauche
+{
+    right: 100%;
+}
+
+.butdroit
+{
+    left:100%;
+}
+
+.penaltygauche
+{
+   position:absolute;
+   width: 75%;
+   border-bottom-right-radius: 50%;
+   border-top-right-radius:50%;
+   border-right: 3px solid #FFF; 
+   top:50%;
+   left:100%;
+   transform: translate(-50%,-50%);
+}
+
+.penaltygauche::after
+{
+    content: '';
+    padding-bottom: 100%;
+    display: block;
+
+}
+
+.penaltydroit
+{
+   position:absolute;
+   width: 75%;
+   border-bottom-left-radius: 50%;
+   border-top-left-radius:50%;
+   border-left: 3px solid #FFF; 
+   top:50%;
+   transform: translate(-50%,-50%);
+}
+
+.penaltydroit::after
+{
+    content: '';
+    padding-bottom: 100%;
+    display: block;
+
+}
+
+
+.cornerHG,.cornerBG,.cornerHD,.cornerBD
+{
+    position:absolute;
+    width: 5%;
+}
+
+.cornerHG::after,.cornerBG::after,.cornerHD::after,.cornerBD::after
+{
+    content:'';
+    padding-bottom: 100%;
+    display: block;
+}
+
+.cornerHG
+{
+    border:3px solid #FFFFFF; 
+    border-radius: 0 0 90px 0;
+    top: -3px;
+
+}
+
+.cornerBG
+{
+    border:3px solid #FFFFFF; 
+    border-radius: 0 90px 0 0;
+    bottom: -3px;
+}
+
+.cornerHD
+{
+    border:3px solid #FFFFFF; 
+    border-radius: 0 0 0 90px;
+    top: -3px;
+    left: calc(95% - 3px);
+}
+
+.cornerBD
+{
+    border:3px solid #FFFFFF; 
+    border-radius: 90px 0 0 0;
+    bottom: -3px;
+    left: calc(95% - 3px);
+}
+
+.middle
+{
+    position:absolute;
+    width: 15%;
+    border:5px solid white;
+    border-radius: 50%;
+    left : 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);  
+}
+
+.middle::after
+{
+    content: '';
+    padding-bottom: 100%;
+    display:block;
+}
+
+.point
+{
+    position:absolute;
+    height: 0.5%;
+    width: 0.5%;
+    border: 5px solid white;
+    border-radius:50%;
+    left : 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+/*Joueurs*/
+
+
+.joueurs
+{
+    z-index: 10;
+}
+
+.player
+{
+    width:7%;
+    border-radius: 50%;
+    border: 3px solid black;
+    position: absolute;
+   
+}
+
+.player::after
+{
+    content:'';
+    padding-bottom: 100%;
+    display:block;
+}
+
+.player:hover
+{
+    transform: scale(1.5);
+}
+
+.player>img
+{
+    position: absolute;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.player>img::after
+{
+    display:block;
+    padding-bottom:100%;
+    content: '';
+}
+
+.player:first-child
+{
+    left: 77%;
+    top: 45%;
+}
+
+
+.player:hover::before
+{
+    position:absolute;
+    text-align: center;
+    background-color: rgba(115, 143, 143, 0.7);
+    font-size: 1.5rem;
+    display:block;
+    border-radius:15%;
+    width: 100%;
+    top: -25%;
+    z-index:2;
+}
+
+.player:first-child:hover::before
+{
+    content: 'Chérif';
+ 
+    
+}
+
+
+.player:nth-child(2), .player:nth-child(3),.player:nth-child(4)
+{
+    left: 60%;
+}
+
+.player:nth-child(2)
+{
+    top: 15%;
+}
+
+.player:nth-child(2):hover::before
+{
+    content: 'Joachim';
+
+}
+
+.player:nth-child(3)
+{
+    top: 45%;
+}
+
+.player:nth-child(3):hover::before
+{
+    content: 'Gladys';
+ 
+}
+
+.player:nth-child(4)
+{
+    top: 75% ;
+}
+
+.player.player:nth-child(4):hover::before
+{
+    content: 'Jérôme';
+
+}
+
+.player:nth-child(5),.player:nth-child(6)
+{
+    left: 40%;
+}
+
+.player:nth-child(5)
+{
+    top: 60%;
+}
+
+.player:nth-child(5):hover::before
+{
+    content: 'Clément';
+ 
+}
+
+.player:nth-child(6)
+{
+    top: 30%;
+}
+
+.player:nth-child(6):hover::before
+{
+    content: 'Julien';
+}
+
+.player:nth-child(7),.player:nth-child(8),.player:nth-child(9),.player:nth-child(10)
+{
+    left: 25%;
+}
+
+.player:nth-child(7)
+{
+    top: 10%;
+}
+.player:nth-child(7):hover::before
+{
+    content: 'Benoit';
+
+}
+
+.player:nth-child(8)
+{
+    top: 35%;
+}
+
+.player:nth-child(8):hover::before
+{
+    content: 'Justine';
+ 
+}
+
+.player:nth-child(9)
+{
+    top: 55%;
+}
+
+.player:nth-child(9):hover::before
+{
+    content: 'Laura';
+  
+}
+
+.player:nth-child(10)
+{
+    top: 80% ;
+}
+
+.player:nth-child(10):hover::before
+{
+    content: 'Zohra';
+   
+}
+
+.player:nth-child(11)
+{
+    top:45%;
+    left:1%;
+}
+
+.player:nth-child(11):hover::before
+{
+    content:'Mathieu';
+}
+
+.ball
+{
+    position: absolute;
+    height: 2%;
+    width: 2%;
+    z-index:15;
+    top: 50vh;
+    left:5vw ;
+}
+
+.ball img
+{
+    width: 100%;
+    filter: opacity(1);
+}
+
+.allez
+{
+    position: absolute;
+    top:-5%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    background: url("images/foule.jpg") center;
+    border: 2px black solid;
+    border-radius: 110px;
+    text-align: center;
+    font-size: 3rem;
+    color:#0235ff;
+    text-shadow: 1px 1px white;
+    filter: opacity(0);
+}
+
+.pasteque
+{
+    position: absolute;
+    top:95%;
+    left: 50%;
+    transform: translate(-50%);
+    border: 5px solid red; 
+    background: url("images/1.jpg") no-repeat;
+    background-size: cover;
+    text-shadow: 1px 1px black;
+    border-radius: 110px;
+   /* filter: opacity(0);*/
+    perspective: 10%;
+    width: 20%; 
+    height: 7%;
+    display: flex;
+    justify-content: space-around;
+}
+.pasteque>img
+{
+    height: 100%;
+    max-width: 25%;;
+}
+
+.gardien:hover ~ .ball
+{
+    animation-name: attaque;
+    animation-duration: 6s;
+    transition-timing-function: ease-in;    
+}
+
+.gardien:hover ~ .allez
+{
+    animation-name:flash;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.gardien:hover ~ .pasteque
+{
+    filter: opacity(1);
+    transition: 1s;
+    transition-delay: 5s;
+}
+.last
+{
+    filter: opacity(0);
+}
+.gardien:hover ~ .pasteque>.last
+{
+    filter: opacity(1);
+    transition-duration: 1s;
+    transition-delay: 6s;
+}
+
+@keyframes attaque
+{
+    0%
+    {
+        transform:translate(0,0);
+        
+       
+    }
+    15%
+    {
+        transform:translate(1100%, 1700%);
+        
+    }
+    30%
+    {
+        transform:translate(1100%,450%);
+       
+    }
+    45%
+    {
+        transform:translate(1900%, -750%);
+   
+    }
+    60%
+    {
+        transform:translate(2900%,0%);
+        
+    }
+    75%
+    {
+        transform:translate(3700%, -100%);
+        filter: opacity(1);
+    }
+    95%
+    {
+        transform: translate(5000%, -100%);
+        filter: opacity(0)
+    }
+    100%
+
+}
+
+.terrainmobile
+{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    display:none;
+}
+
+
+
+@keyframes flash
+{
+    from
+    {
+        filter: opacity(0);
+    }
+    to
+    {
+        filter: opacity(1);
+    }
+
+}
+
+
+
+@media (max-width:720px) and (orientation: portrait)
+{
+
+    /*Terrain mobile*/
+    .terrainmobile
+    {
+        display: contents;
+        --heightsurfaceGmobile:33%;
+        --heightsurfaceDmobile:33%;
+        --widthsurfaceGmobile:66%;
+        --widthsurfaceDmobile:66%;
+        --heightembutGmobile: calc(var(--heightsurfaceGmobile) / 1.5);
+        --heightembutDmobile: calc(var(--heightsurfaceDmobile) / 1.5);
+    }
+    .terrain
+    {
+        display:none;
+    }
+
+    .gauchemobile
+    {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        border-bottom: 2.5px solid #FFFFFF;
+    }
+
+    .droitemobile
+    {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        border-top: 2.5px solid #FFFFFF;
+        top:50%;
+    }
+
+    .surfacegauchemobile
+    {
+        position: absolute;
+        margin:0;
+        padding:0;
+        border-left:none;
+        height: var(--heightsurfaceGmobile);
+        width: var(--widthsurfaceGmobile);
+        right: calc(((100% - var(--widthsurfaceGmobile)) / 2) - 3px);
+        border: 3px solid #FFFFFF;
+        border-top:none;
+    }
+
+    .surfacedroitemobile
+    {
+        position: absolute;
+        margin:0;
+        padding:0;
+        border-left:none;
+        height: var(--heightsurfaceDmobile);
+        width: var(--widthsurfaceDmobile);
+        right: calc(((100% - var(--widthsurfaceDmobile)) / 2) - 3px);
+        bottom:0;
+        border: 3px solid #FFFFFF;
+        border-bottom:none;
+    }
+
+    .embutgauchemobile,.embutdroitemobile
+    {
+        position:absolute;
+        border: 3px solid #FFFFFF;
+    }
+
+    .embutgauchemobile
+    {
+        width: calc(var(--widthsurfaceGmobile)/ 1.2) ;
+        height: var(--heightembutGmobile);
+        border-top:none;
+        right: calc(((100% - (var(--widthsurfaceGmobile) / 1.2)) / 2) - 3px)  ;
+        
+    }
+
+    .embutdroitemobile
+    {
+        width: calc(var(--widthsurfaceDmobile)/ 1.2) ;
+        height: var(--heightembutDmobile);
+        border-bottom:none;
+        right: calc(((100% - (var(--widthsurfaceDmobile) / 1.2)) / 2) - 3px)  ;
+        bottom:0;
+    }
+
+    
+
+    .butgauchemobile,.butdroitmobile
+    {
+        position: absolute;
+        width:20%;
+        height:25%;
+        border: 3px solid #FFFFFF;
+        right:37.5%;
+    }
+
+    .butgauchemobile
+    {
+        top:calc(-25% - 3px);  
+        border-bottom: none; 
+    }
+
+    .butdroitmobile
+    {
+     bottom:calc(-25% - 3px);
+     border-top: none;
+    }
+    .cornerHGmobile,.cornerBGmobile,.cornerHDmobile,.cornerBDmobile
+    {
+        position:absolute;
+        width: 5%;
+    }
+    
+    .cornerHGmobile::after,.cornerBGmobile::after,.cornerHDmobile::after,.cornerBDmobile::after
+    {
+        content:'';
+        padding-bottom: 100%;
+        display: block;
+    }
+    
+    .cornerHGmobile
+    {
+        border:3px solid #FFFFFF; 
+        border-radius: 0 0 90px 0;
+        top: -4px;
+        left:-3px;
+    
+    }
+    
+    .cornerBGmobile
+    {
+        border:3px solid #FFFFFF; 
+        border-radius: 0 90px 0 0;
+        bottom: calc(-100% - 3px);
+        left:-3px;
+    }
+    
+    .cornerHDmobile
+    {
+        border:3px solid #FFFFFF; 
+        border-radius: 0 0 0 90px;
+        top: calc( -101% - 3px);
+        left: calc(95% - 3px);
+    }
+    
+    .cornerBDmobile
+    {
+        border:3px solid #FFFFFF; 
+        border-radius: 90px 0 0 0;
+        bottom: 0;
+        left: calc(95% - 3px);
+    }
+
+    .middlemobile
+    {
+        position:absolute;
+        width: 15%;
+        border:5px solid white;
+        border-radius: 50%;
+        left : 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);  
+    }
+
+    .middlemobile::after
+    {
+        content: '';
+        padding-bottom: 100%;
+        display:block;
+    }
+
+    .pointmobile
+    {
+        position:absolute;
+        height: 0.5%;
+        width: 0.5%;
+        border: 5px solid white;
+        border-radius:50%;
+        left : 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); 
+    }
+
+    /*Joueurs mobiles*/
+    .joueurs
+    {
+        transform:rotate(90deg);
+    }
+
+    .player
+    {
+        width: 13%;
+    }
+
+    .player>img
+    {
+        transform:rotate(-90deg);
+    }
+
+    .player:hover::before
+    {
+        transform: rotate(-90deg);
+        font-size: 0.7rem;
+        left:-50%;
+        top: 50%;
+    
+    }
+
+    .player:first-child
+    {
+        left: 100%;
+        top: 44%;
+    }   
+
+    .player:nth-child(2)
+    {
+        top:25%;
+    }
+    .player:nth-child(3)
+    {
+        top: 44%;
+    }
+    .player:nth-child(4)
+    {
+        top:65%;
+    }
+    .player:nth-child(2),.player:nth-child(3),.player:nth-child(4)
+    {
+        left: 72%;
+    }
+    .player:nth-child(5),.player:nth-child(6)
+    {
+        left: 38%;
+    }
+    .player:nth-child(7),.player:nth-child(10)
+    {
+        left: -5%;
+    }
+    .player:nth-child(8),.player:nth-child(9)
+    {
+        left:5%;
+    }
+    .player:nth-child(7)
+    {
+        top:25%;
+    }
+    .player:nth-child(10)
+    {
+        top:65%;
+    }
+
+    .player:nth-child(11)
+    {
+        left:-40%;
+    }
+    .ball
+    {
+        position: absolute;
+        height: 10%;
+        width: 10%;
+        z-index:15;
+        top: 47%;
+        left:-32%;
+    }
+    .ball img
+    {
+        width: 100%;
+        filter: opacity(1);
+    }
+
+
+    .gardien:hover ~ .ball
+    {
+        animation-name:passemobile;
+        animation-duration: 6s;
+        transition-timing-function: ease-in;    
+    }
+
+@keyframes passemobile
+{
+    0%
+    {
+        transform:translate(0,0);
+        
+       
+    }
+    15%
+    {
+        transform:translate(350%, 190%);
+        
+    }
+    30%
+    {
+        transform:translate(450%,100%);
+       
+    }
+    45%
+    {
+        transform:translate(450%, -120%);
+   
+    }
+    60%
+    {
+        transform:translate(770%,150%);
+        
+    }
+    75%
+    {
+        transform:translate(1150%, -30%);
+
+    }
+    85%
+    {
+        transform:translate(1450%, -30%);
+        filter: opacity(1);
+    }
+    95%
+    {
+        transform: translate(5000%, -30%);
+        filter: opacity(0)
+    }
+    100%
+
+}
+}
+
+

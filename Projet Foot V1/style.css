@@ -1,0 +1,445 @@
+body
+{
+    background: url("images/terrain2h.png") fixed;
+    background-size: cover;
+   
+}
+
+.terrain,.joueurs
+{
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+
+
+/*Terrain*/
+.main
+{
+    position: fixed;
+    width: 90vw;
+    height: 90vh ;
+    border: 5px solid white;
+    left: 5%;
+    top: 5%;   
+}
+
+
+
+
+.but_gauche
+{
+    position:absolute;
+    width: 2.5%;
+    height:15%;
+    right: 100%;
+    top: 40%;
+    border: 5px solid white;
+    border-right:none;
+}
+
+.but_droit
+{
+    position:absolute;
+    width: 2.5%;
+    height:15%;
+    left: 100%;
+    top: 40%;
+    border: 5px solid white;
+    border-left:none;
+}
+
+.hide_HG
+{
+    position: absolute;
+    width: 2% ;
+    top: -0.5%;
+    left:-0.5%;
+    height: 4%;
+    overflow: hidden ;
+    border-radius: 50%;
+}
+
+.corner_HG
+{
+    position: absolute;
+    border: 5px solid white;
+    width:200%;
+    height:200%;
+    border-radius: 50%;
+    top: -150%;
+    left:-150% ;
+}
+
+.hide_BG
+{
+    position: absolute;
+    top: 96.5%;
+    left:-0.5%;
+    width: 2% ;
+    height: 4%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.corner_BG
+{
+    position: absolute;
+    border: 5px solid white;
+    width:200%;
+    height:200%;
+    border-radius: 50%;
+    bottom: -150%;
+    left:-150% ;
+}
+
+.hide_BD
+{
+    position: absolute;
+    top: 96.5%;
+    left:98.5%;
+    width: 2% ;
+    height: 4%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.corner_BD
+{
+    position: absolute;
+    border: 5px solid white;
+    width:200%;
+    height:200%;
+    border-radius: 50%;
+    bottom: -150%;
+    right:-150% ;
+}
+
+.hide_HD
+{
+    position: absolute;
+    left:98.5%;
+    top:-0.5%;
+    width: 2% ;
+    height: 4%;
+    overflow: hidden ;
+    border-radius: 50%;
+}
+
+.corner_HD
+{
+    position: absolute;
+    border: 5px solid white;
+    width:200%;
+    height:200%;
+    border-radius: 50%;
+    top: -150%;
+    right:-150% ;
+}
+
+.miG,.miD
+{
+    position:absolute;
+    height: 100%;
+    width: 50%;
+    
+}
+
+.miD
+{
+    left:50%;
+    border-left:5px solid white ;
+}
+
+.miG
+{
+    border-right:5px solid white ;
+    
+}
+
+
+.dbg
+{
+    position:absolute;
+    width:calc(6% - 5px);
+    height:25%;
+    top: 35%;
+    border: 5px solid white;
+    border-left:none;
+}
+
+.dbd
+{
+    position:absolute;
+    width:calc(6% - 5px); /*Ne pas oublier l'espace autour du signe, sinon le calcul ne fonctionne pas*/
+    height:25%;
+    top: 35%;
+    border: 5px solid white;
+    border-right:none;
+    left:94%;
+    
+}
+
+.penaltyg
+{
+    position:absolute;
+    height: 75%;
+    width: 200%;
+    border:5px solid white;
+    border-radius: 50%;
+    top:6%;
+    left:-170%; 
+}
+
+.zdbg
+{
+    position: absolute;
+    height:50%;
+    width:15%;
+    top:25%;
+    border:5px solid white;
+    border-left:none;
+    z-index:0;
+   
+}
+
+.hide_G
+{
+    position:absolute;
+    height:50%;
+    width:10%;
+    top:25%;
+    left:15%;
+   /* border:5px solid white;*/
+    overflow: hidden;
+   
+}
+
+.zdbd
+{
+    position: absolute;
+    height:50%;
+    width:15%;
+    top:25%;
+    left:85%;
+    border:5px solid white;
+    border-right:none;
+   
+}
+
+
+.hide_D
+{
+    position:absolute;
+    height:50%;
+    width:10%;
+    top:25%;
+    left:75%;
+   /* border:5px solid white;*/
+    overflow: hidden;
+}
+
+.penaltyd
+{
+    position:absolute;
+    height: 75%;
+    width: 200%;
+    border:5px solid white;
+    border-radius: 50%;
+    top:6%;
+    right:-170%; 
+}
+
+.middle
+{
+    position:absolute;
+    height: 30%;
+    width: 16.5%;
+    border:5px solid white;
+    border-radius: 50%;
+    left:41.5%;
+    top:35%;
+  
+    
+}
+
+.point
+{
+    position:absolute;
+    height: 0.3%;
+    width: 0.1%;
+    border: 6px solid white;
+    border-radius:50%;
+    left:49.75%;
+    top:49.8%;
+}
+
+/*Joueurs*/
+
+.player
+{
+    width:7%;
+    position: absolute;
+}
+
+.player>img
+{
+    width:100%;
+}
+
+
+.player:first-child
+{
+    left: 77%;
+    top: 45%;
+}
+
+
+.player:nth-child(2), .player:nth-child(3),.player:nth-child(4)
+{
+    left: 60%;
+}
+
+.player:nth-child(2)
+{
+    top: 15%;
+}
+
+.player:nth-child(3)
+{
+    top: 45%;
+}
+
+.player:nth-child(4)
+{
+    top: 75% ;
+}
+
+.player:nth-child(5),.player:nth-child(6)
+{
+    left: 40%;
+}
+
+.player:nth-child(5)
+{
+    top: 60%;
+}
+
+.player:nth-child(6)
+{
+    top: 30%;
+}
+
+.player:nth-child(7),.player:nth-child(8),.player:nth-child(9),.player:nth-child(10)
+{
+    left: 25%;
+}
+
+.player:nth-child(7)
+{
+    top: 10%;
+}
+
+.player:nth-child(8)
+{
+    top: 35%;
+}
+
+.player:nth-child(9)
+{
+    top: 55%;
+}
+
+.player:nth-child(10)
+{
+    top: 80% ;
+}
+
+.player:nth-child(11)
+{
+    top:45%;
+    left:1%;
+}
+
+.ball
+{
+    position: absolute;
+    height: 2%;
+    width: 2%;
+    z-index:15;
+    top: 50vh;
+    left:5vw ;
+}
+
+.ball img
+{
+    width: 100%;
+}
+
+.ball:hover
+{
+    animation-name:passe;
+    animation-duration: 6s;
+    transition-timing-function: ease-in;
+   
+}
+
+@keyframes passe
+{
+    0%
+    {
+        transform:translate(0,0);
+    }
+    15%
+    {
+        transform:translate(1100%, 1900%);
+    }
+    30%
+    {
+        transform:translate(1100%,700%)
+    }
+    45%
+    {
+        transform:translate(1900%, -600%)
+    }
+    60%
+    {
+        transform:translate(2900%,0%)
+    }
+    70%
+    {
+        transform:translate(3700%,0%)
+    }
+    80%
+    {
+        transform:translate(4800%,-100%)
+    }
+    90%
+    {
+        transform: translate(2800%, -100%) scale(2) ;
+     
+    }
+    100%
+    {
+        transform: translate(0%, 0%);
+        
+    }
+}
+
+@media (max-width:720px) and (orientation: portrait)
+{
+    .main
+    {
+        transform: rotate(90deg);
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .joueurs img
+    {
+        transform:rotate(-90deg);
+    }
+}
+
+
+

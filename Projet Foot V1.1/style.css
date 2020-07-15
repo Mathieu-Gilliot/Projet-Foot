@@ -1,0 +1,339 @@
+body
+{
+    background: url("images/terrain2h.png") fixed;
+    background-size: cover;
+   
+}
+
+.terrain,.joueurs
+{
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+
+
+/*Terrain*/
+.main
+{
+    position: fixed;
+    width: 90vw;
+    height: 90vh ;
+    border: 5px solid white;
+    left: 5%;
+    top: 5%;   
+    --heightsurfaceG:66%;
+    --heightsurfaceD:66%;
+    --widthsurfaceG:33%;
+    --widthsurfaceD:33%;
+    --heightembutG: calc(var(--heightsurfaceG) / 1.5);
+    --heightembutD: calc(var(--heightsurfaceD) / 1.5);
+    --heightpenaltygauche: 100px;
+    --widthpenaltygauche: calc(var(--heightpenaltygauche) * 2)
+}
+
+
+
+.gauche,.droite
+{
+    position: absolute;
+    width:50% ;
+    height: 100%;
+}
+
+.droite
+{
+    left:50%;
+    border-left: 2.5px solid white;
+}
+.gauche
+{
+    right:50%;
+    border-right: 2.5px solid white;
+}
+
+
+.surfacegauche,.surfacedroite
+{
+    position: absolute;
+    border: 3px solid #FFFFFF;
+}
+
+.surfacegauche
+{
+    border-left:none;
+    height: var(--heightsurfaceG);
+    width: var(--widthsurfaceG);
+    top: calc((100% - var(--heightsurfaceG))/2);
+    right: calc((100% - var(--widthsurfaceG)) - 3px);
+}
+
+.surfacedroite
+{
+    border-right: none;
+    left:calc((100% - var(--widthsurfaceD)) - 3px);
+    width: var(--widthsurfaceG);
+    height: var(--heightsurfaceD);
+    top: calc((100% - var(--heightsurfaceD))/2);
+}
+
+
+.embutgauche,.embutdroite
+{
+    position:absolute;
+    border: 3px solid #FFFFFF;
+    
+}
+
+.embutgauche
+{
+    width: calc(var(--widthsurfaceG)/ 1.65) ;
+    height: var(--heightembutG);
+    border-left:none;
+    top: calc((100% - var(--heightembutG))/2);
+}
+
+.embutdroite
+{
+    border-right:none;
+    height: var(--heightembutD);
+    top: calc((100% - var(--heightembutD))/2);
+    width: calc(var(--widthsurfaceD)/ 1.65) ;
+    left: calc((100% - (var(--widthsurfaceD) / 1.65)) - 3px);
+    
+}
+
+.butgauche,.butdroit
+{
+    position: absolute;
+    width:20%;
+    height:25%;
+    border: 3px solid #FFFFFF;
+    top:37.5%;
+}
+.butgauche
+{
+    right: 100%;
+}
+
+.butdroit
+{
+    left:100%;
+}
+
+.penaltygauche
+{
+    position:absolute;
+    width: var(--widthpenaltygauche);
+    height:var(--heightpenaltygauche);
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border: 5px solid #FFFFFF;
+    border-bottom: 0;
+    transform: rotate(90deg);
+    
+}
+
+.cornerHG,.corner
+{
+    position:absolute;
+    height: 5%;
+
+}
+
+
+
+.middle
+{
+    position:absolute;
+    height: 150px;
+    width: 150px;
+    transform-origin: center;
+    border:5px solid white;
+    border-radius: 50%;
+    left:44.3%;
+    top:38.5%;
+  
+    
+}
+
+.point
+{
+    position:absolute;
+    height: 0.5%;
+    width: 0.5%;
+    border: 1px solid white;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+}
+
+/*Joueurs*/
+
+.player
+{
+    width:7%;
+    position: absolute;
+}
+
+.player>img
+{
+    width:100%;
+}
+
+
+.player:first-child
+{
+    left: 77%;
+    top: 45%;
+}
+
+
+.player:nth-child(2), .player:nth-child(3),.player:nth-child(4)
+{
+    left: 60%;
+}
+
+.player:nth-child(2)
+{
+    top: 15%;
+}
+
+.player:nth-child(3)
+{
+    top: 45%;
+}
+
+.player:nth-child(4)
+{
+    top: 75% ;
+}
+
+.player:nth-child(5),.player:nth-child(6)
+{
+    left: 40%;
+}
+
+.player:nth-child(5)
+{
+    top: 60%;
+}
+
+.player:nth-child(6)
+{
+    top: 30%;
+}
+
+.player:nth-child(7),.player:nth-child(8),.player:nth-child(9),.player:nth-child(10)
+{
+    left: 25%;
+}
+
+.player:nth-child(7)
+{
+    top: 10%;
+}
+
+.player:nth-child(8)
+{
+    top: 35%;
+}
+
+.player:nth-child(9)
+{
+    top: 55%;
+}
+
+.player:nth-child(10)
+{
+    top: 80% ;
+}
+
+.player:nth-child(11)
+{
+    top:45%;
+    left:1%;
+}
+
+.ball
+{
+    position: absolute;
+    height: 2%;
+    width: 2%;
+    z-index:15;
+    top: 50vh;
+    left:5vw ;
+}
+
+.ball img
+{
+    width: 100%;
+}
+
+.ball:hover
+{
+    animation-name:passe;
+    animation-duration: 6s;
+    transition-timing-function: ease-in;
+   
+}
+
+@keyframes passe
+{
+    0%
+    {
+        transform:translate(0,0);
+    }
+    15%
+    {
+        transform:translate(1100%, 1900%);
+    }
+    30%
+    {
+        transform:translate(1100%,700%)
+    }
+    45%
+    {
+        transform:translate(1900%, -600%)
+    }
+    60%
+    {
+        transform:translate(2900%,0%)
+    }
+    70%
+    {
+        transform:translate(3700%,0%)
+    }
+    80%
+    {
+        transform:translate(4800%,-100%)
+    }
+    90%
+    {
+        transform: translate(2800%, -100%) scale(2) ;
+     
+    }
+    100%
+    {
+        transform: translate(0%, 0%);
+        
+    }
+}
+
+@media (max-width:720px) and (orientation: portrait)
+{
+    .main
+    {
+        transform: rotate(90deg);
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .joueurs img
+    {
+        transform:rotate(-90deg);
+    }
+}
+
+
+
